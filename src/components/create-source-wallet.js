@@ -1,9 +1,8 @@
-import { useCreateWallet, WalletAddress } from "@nice-xrpl/react-xrpl";
+import { useCreateWallet, Wallet } from "@nice-xrpl/react-xrpl";
 import { useState } from "react";
 
-export function CreateDestinationWallet({ children }) {
-
-    const [address, setAddress] = useState("");
+export function CreateSourceWallet({ children }) {
+    const [seed, setSeed] = useState("");
     const [sending, setSending] = useState(false);
 
     // When connected to the testnet/dev net, you can
@@ -14,8 +13,8 @@ export function CreateDestinationWallet({ children }) {
     // The Wallet component is used when you have
     // credentials. It enables the use of all
     // transactional hooks and all request hooks.
-    return address ? (
-        <WalletAddress address={address}>{children}</WalletAddress>
+    return seed ? (
+        <Wallet seed={seed}>{children}</Wallet>
     ) : (
         <div>
             {!sending ? (
@@ -26,16 +25,16 @@ export function CreateDestinationWallet({ children }) {
 
                         setSending(false);
 
-                        if (initialState.wallet.address) {
+                        if (initialState.wallet.seed) {
                             console.log("created wallet: ", initialState);
-                            setAddress(initialState.wallet.address);
+                            setSeed(initialState.wallet.seed);
                         }
                     }}
                 >
-                    Create destination wallet
+                    Create source wallet
                 </button>
             ) : (
-                "Creating destination wallet..."
+                "Creating source wallet..."
             )}
         </div>
     );
