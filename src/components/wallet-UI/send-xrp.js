@@ -15,7 +15,7 @@ const SendXRP = () => {
     console.log("trans", transDetails)
 
     return (
-        <div>
+        <div className='px-2'>
             <div>
                 Send
                 <input
