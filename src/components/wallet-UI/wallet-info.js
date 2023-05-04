@@ -5,5 +5,5 @@ export function WalletInfo() {
     // of the wallet used up in the tree.
     const address = useWalletAddress();
 
-    return <div className="">Address: {address}</div>;
+    return <div className="font-medium">Address: <span className="text-violet-900 font-semibold hover:underline">{address}</span></div>;
 }

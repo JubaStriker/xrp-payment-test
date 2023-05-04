@@ -1,11 +1,11 @@
-import { useIsConnected } from "@nice-xrpl/react-xrpl";
+import { Networks, XRPLClient, useIsConnected } from "@nice-xrpl/react-xrpl";
 import { CreateDestinationWallet } from "./components/create-destination-wallet";
 import { CreateSourceWallet } from "./components/create-source-wallet";
 import { DestinationWallet } from "./components/destination-wallet";
 import Navbar from "./components/navbar/Navbar";
 import { SourceWallet } from "./components/source-wallet";
 
-function App() {
+function MainApp() {
 
   const isConnected = useIsConnected();
 
@@ -14,8 +14,9 @@ function App() {
       <Navbar />
 
       <div>
-        <div>Connected: {isConnected ? "Yes" : "No"}</div>
-        <div className="WalletWrapper">
+        <div className="text-center font-semibold text-3xl my-4">Connected: <span className="font-bold text-green-800">{isConnected ? "Yes" : "No"}</span></div>
+
+        <div className="">
           <CreateSourceWallet>
             <SourceWallet />
           </CreateSourceWallet>
@@ -31,4 +32,20 @@ function App() {
   );
 }
 
-export default App;
+
+
+
+// Testnet address : wss://s.altnet.rippletest.net:51233
+
+export default function App() {
+  return (
+    <div>
+
+      {/* Main APP is wraped with client because every hook need the client to work */}
+
+      <XRPLClient network={Networks.Testnet}>
+        <MainApp />
+      </XRPLClient>
+    </div>
+  );
+}

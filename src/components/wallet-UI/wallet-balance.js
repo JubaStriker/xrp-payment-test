@@ -6,5 +6,5 @@ export function WalletBalance() {
     // a wallet or a wallet address.
     const balance = useBalance();
 
-    return <div className="WalletRow">Balance: {balance}</div>;
+    return <div className="font-medium">Balance: <span className="text-green-600 font-semibold">{balance}</span></div>;
 }

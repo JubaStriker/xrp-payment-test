@@ -6,5 +6,6 @@ export function WalletSeed() {
     // or any other information.
     const wallet = useWallet();
 
-    return <div className="WalletRow">Seed: {wallet.seed}</div>;
+    return <div className="font-medium">Seed: <span className="text-pink-700 font-semibold hover:underline">{wallet.seed}</span></div>;
+
 }

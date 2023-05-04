@@ -6,12 +6,16 @@ import { WalletSeed } from "./wallet-UI/wallet-seed";
 
 export function SourceWallet() {
     return (
-        <div className="">
-            <div className="text-center font-semibold text-2xl">Source Wallet</div>
-            <WalletSeed />
-            <WalletInfo />
-            <WalletBalance />
-            <SendXRP />
-        </div>
+        <>
+            <div className="text-center font-semibold text-2xl bg-cyan-400 py-1 mb-4 mx-3 text-white ">Source Wallet</div>
+            <div className=" flex flex-col justify-center items-center w-full">
+
+                <WalletSeed />
+                <WalletInfo />
+                <WalletBalance />
+                <SendXRP />
+            </div>
+            <hr />
+        </>
     );
 }
